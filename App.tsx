@@ -343,10 +343,100 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
-      {/* 3. Mission (Gold/Brown) - sketchy frames like reference */}
+      {/* 3. Products - transparent bg so pattern shows */}
+      <section
+        className="py-20 relative"
+        style={{ animation: 'fadeInUp 0.9s ease 0.22s both' }}
+      >
+         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div className="mb-16">
+               <h2 className="text-[60px] serif text-[#ab9873] italic tracking-wider mb-2">product</h2>
+               <p className="text-[10px] md:text-xs text-gray-400 tracking-[0.2em] uppercase">
+                  プティフール | 焼き菓子 | ホールケーキ | ギフト | 雑貨
+               </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-16 md:gap-x-12">
+               {PRODUCT_CATEGORIES.map((product) => (
+                  <div key={product.id} className="group flex flex-col items-center text-center">
+                     <div className="relative w-36 h-36 md:w-56 md:h-56 rounded-full overflow-hidden mb-8 shadow-md ring-4 ring-offset-4 ring-[#ab9873]/20 bg-white">
+                        <img 
+                           src={product.image} 
+                           alt={product.title} 
+                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex flex-col items-center justify-center text-white p-4">
+                           <h3 className="text-xl md:text-3xl serif tracking-widest mb-2 drop-shadow-md">{product.title}</h3>
+                           <p className="text-[9px] md:text-[10px] uppercase tracking-wider opacity-90">{product.englishTitle}</p>
+                        </div>
+                     </div>
+                     <p className="text-[10px] text-gray-400 leading-relaxed max-w-[180px] hidden md:block tracking-wide bg-[#fff9ed]/80 backdrop-blur-sm p-1 rounded">
+                        {product.subtitle}
+                     </p>
+                  </div>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* 4. Online Shop CTA */}
+      <section
+        className="py-12 px-4 md:px-12 relative z-10"
+        style={{ animation: 'fadeInUp 0.9s ease 0.28s both' }}
+      >
+         <div className="max-w-5xl mx-auto">
+            <div className="bg-white/80 backdrop-blur-sm border border-[#ab9873]/20 rounded-3xl shadow-lg overflow-hidden">
+               <div className="grid grid-cols-1 md:grid-cols-3">
+                  <div className="md:col-span-2 p-8 md:p-12 flex flex-col gap-4">
+                     <p className="text-xs uppercase tracking-[0.3em] text-[#ab9873]">Online Shop</p>
+                     <h3 className="text-2xl md:text-3xl serif font-semibold text-[#5A4D41] tracking-widest">
+                        お取り寄せ・ギフトのご案内
+                     </h3>
+                     <p className="text-sm md:text-base text-[#5A5A5A] leading-relaxed">
+                        プティフール、焼き菓子、ホールケーキ、ギフトセットをオンラインでご注文いただけます。
+                        アレルギー表記付きで全国配送にも対応しています。
+                     </p>
+                     <div className="flex flex-wrap gap-3 pt-2">
+                        <a 
+                          href="https://example.com/onlineshop" 
+                          className="bg-[#ab9873] text-white px-6 py-2 rounded-full text-sm tracking-[0.2em] hover:bg-[#967f59] transition-colors"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          オンラインショップへ
+                        </a>
+                        <a 
+                          href="#contact" 
+                          className="border border-[#ab9873] text-[#ab9873] px-6 py-2 rounded-full text-sm tracking-[0.2em] hover:bg-[#ab9873] hover:text-white transition-colors"
+                        >
+                          お問い合わせ
+                        </a>
+                     </div>
+                     <ul className="grid grid-cols-2 gap-3 text-xs md:text-sm text-[#5A4D41] tracking-wide pt-4">
+                        <li>• 全品ヴィーガン & グルテンフリー</li>
+                        <li>• ギフト包装・熨斗対応</li>
+                        <li>• 冷凍便で全国配送</li>
+                        <li>• カスタムメッセージ同封可</li>
+                     </ul>
+                  </div>
+                  <div className="relative bg-[#ab9873]/10 flex items-center justify-center p-6">
+                     <div className="absolute inset-4 border border-[#ab9873]/40 rounded-[28px] -rotate-1" aria-hidden="true"></div>
+                     <div className="absolute inset-6 border border-[#ab9873]/30 rounded-[32px] rotate-1" aria-hidden="true"></div>
+                     <img 
+                       src="/images/hero/hero-main.jpg" 
+                       alt="Assorted vegan sweets gift box" 
+                       className="relative z-10 rounded-2xl object-cover w-full h-full max-h-[260px] shadow-md"
+                     />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 5. Mission (Gold/Brown) - sketchy frames like reference */}
       <section
         className="bg-[#ab9873] py-16 px-4 md:px-12 relative z-10"
-        style={{ animation: 'fadeInUp 0.9s ease 0.22s both' }}
+        style={{ animation: 'fadeInUp 0.9s ease 0.34s both' }}
       >
         <div className="max-w-6xl mx-auto relative">
           <div className="pointer-events-none absolute inset-0 border-2 border-[#f1e7d3] rounded-[40px] opacity-90 -rotate-1" aria-hidden="true"></div>
@@ -401,10 +491,10 @@ const App: React.FC = () => {
           </div>
         </div>
       </section>
-      {/* 4. Split Columns (Allergy & Ramen) - z-10 */}
+      {/* 6. Split Columns (Allergy & Ramen) - z-10 */}
       <section
         className="bg-[#77c5ba] px-4 py-4 md:px-12 md:py-12 text-[#fff9ed] relative z-10"
-        style={{ animation: 'fadeInUp 0.9s ease 0.28s both' }}
+        style={{ animation: 'fadeInUp 0.9s ease 0.40s both' }}
       >
          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             
@@ -435,96 +525,6 @@ const App: React.FC = () => {
                </SketchyBox>
             </div>
 
-         </div>
-      </section>
-
-      {/* 5. Products - transparent bg so pattern shows */}
-      <section
-        className="py-20 relative"
-        style={{ animation: 'fadeInUp 0.9s ease 0.34s both' }}
-      >
-         <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-            <div className="mb-16">
-               <h2 className="text-[60px] serif text-[#ab9873] italic tracking-wider mb-2">product</h2>
-               <p className="text-[10px] md:text-xs text-gray-400 tracking-[0.2em] uppercase">
-                  プティフール | 焼き菓子 | ホールケーキ | ギフト | 雑貨
-               </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-16 md:gap-x-12">
-               {PRODUCT_CATEGORIES.map((product) => (
-                  <div key={product.id} className="group flex flex-col items-center text-center">
-                     <div className="relative w-36 h-36 md:w-56 md:h-56 rounded-full overflow-hidden mb-8 shadow-md ring-4 ring-offset-4 ring-[#ab9873]/20 bg-white">
-                        <img 
-                           src={product.image} 
-                           alt={product.title} 
-                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors flex flex-col items-center justify-center text-white p-4">
-                           <h3 className="text-xl md:text-3xl serif tracking-widest mb-2 drop-shadow-md">{product.title}</h3>
-                           <p className="text-[9px] md:text-[10px] uppercase tracking-wider opacity-90">{product.englishTitle}</p>
-                        </div>
-                     </div>
-                     <p className="text-[10px] text-gray-400 leading-relaxed max-w-[180px] hidden md:block tracking-wide bg-[#fff9ed]/80 backdrop-blur-sm p-1 rounded">
-                        {product.subtitle}
-                     </p>
-                  </div>
-               ))}
-            </div>
-         </div>
-      </section>
-
-      {/* 6. Online Shop CTA */}
-      <section
-        className="py-12 px-4 md:px-12 relative z-10"
-        style={{ animation: 'fadeInUp 0.9s ease 0.4s both' }}
-      >
-         <div className="max-w-5xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-sm border border-[#ab9873]/20 rounded-3xl shadow-lg overflow-hidden">
-               <div className="grid grid-cols-1 md:grid-cols-3">
-                  <div className="md:col-span-2 p-8 md:p-12 flex flex-col gap-4">
-                     <p className="text-xs uppercase tracking-[0.3em] text-[#ab9873]">Online Shop</p>
-                     <h3 className="text-2xl md:text-3xl serif font-semibold text-[#5A4D41] tracking-widest">
-                        お取り寄せ・ギフトのご案内
-                     </h3>
-                     <p className="text-sm md:text-base text-[#5A5A5A] leading-relaxed">
-                        プティフール、焼き菓子、ホールケーキ、ギフトセットをオンラインでご注文いただけます。
-                        アレルギー表記付きで全国配送にも対応しています。
-                     </p>
-                     <div className="flex flex-wrap gap-3 pt-2">
-                        <a 
-                          href="https://example.com/onlineshop" 
-                          className="bg-[#ab9873] text-white px-6 py-2 rounded-full text-sm tracking-[0.2em] hover:bg-[#967f59] transition-colors"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          オンラインショップへ
-                        </a>
-                        <a 
-                          href="#contact" 
-                          className="border border-[#ab9873] text-[#ab9873] px-6 py-2 rounded-full text-sm tracking-[0.2em] hover:bg-[#ab9873] hover:text-white transition-colors"
-                        >
-                          お問い合わせ
-                        </a>
-                     </div>
-                     <ul className="grid grid-cols-2 gap-3 text-xs md:text-sm text-[#5A4D41] tracking-wide pt-4">
-                        <li>• 全品ヴィーガン & グルテンフリー</li>
-                        <li>• ギフト包装・梱包対応</li>
-                        <li>• 冷凍便で全国配送</li>
-                        <li>• カスタムメッセージ同封可</li>
-                     </ul>
-                  </div>
-                  <div className="relative bg-[#ab9873]/10 flex items-center justify-center p-6">
-                     <div className="absolute inset-4 border border-[#ab9873]/40 rounded-[28px] -rotate-1" aria-hidden="true"></div>
-                     <div className="absolute inset-6 border border-[#ab9873]/30 rounded-[32px] rotate-1" aria-hidden="true"></div>
-                     <img 
-                       src="/images/hero/hero-main.jpg" 
-                       alt="Assorted vegan sweets gift box" 
-                       className="relative z-10 rounded-2xl object-cover w-full h-full max-h-[260px] shadow-md"
-                     />
-                  </div>
-               </div>
-            </div>
          </div>
       </section>
 
@@ -591,7 +591,7 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* 7. Vertical Links List - transparent so pattern shows */}
+      {/* 8. Vertical Links List - transparent so pattern shows */}
       <section className="py-24 relative z-10">
          <div className="max-w-4xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 text-center">
@@ -608,7 +608,7 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* 8. Footer Hero - z-10 */}
+      {/* 9. Footer Hero - z-10 */}
       <footer className="relative h-[70vh] w-full z-10">
          <img 
             src="/images/products/cake/cake-before-vegan.jpg" 
